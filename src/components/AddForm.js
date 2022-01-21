@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
+// Actions
+import { setError, addSmurf } from '../actions';
+
 const AddForm = (props) => {
+    console.log(props);
+
     const [ state, setState ] = useState({
         name: '',
         position: '',
@@ -19,9 +24,14 @@ const AddForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (state.name === '' || state.position === '' || state.nickname === '') {
-            //dispatch a custom error action
+            props.dispatch(setError('Houston, we have a problem.'));
         } else {
-            //dispatch an addSmurf action
+            props.dispatch(addSmurf({
+                name: state.name,
+                position: state.position,
+                nickname: state.nickname,
+                description: state.description,
+            }));
         }
     }
 
@@ -61,7 +71,7 @@ const mapPropsToState = (state) => {
 export default connect(mapPropsToState)(AddForm);
 
 //Task List:
-//1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.
-//2. Replace all instances of the errorMessage static variable with your error message state value. 
-//3. Within the handleSubmit function, replace the static assignment to errorMessage with a call to the setError action. Test that an error is displayed when this validation code fails.
-//4. Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summury passed as arguments. Test that a smurf is correctly added to when the form is submitted.
+//1. ✅ Connect the errorMessage, setError and addSmurf actions to the AddForm component.
+//2. ✅ Replace all instances of the errorMessage static variable with your error message state value. 
+//3. ✅ Within the handleSubmit function, replace the static assignment to errorMessage with a call to the setError action. Test that an error is displayed when this validation code fails.
+//4. ✅ Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summary passed as arguments. Test that a smurf is correctly added to when the form is submitted.
