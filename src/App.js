@@ -1,20 +1,23 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+// Components
 import AddForm from './components/AddForm';
 import SmurfList from './components/SmurfList';
 import Header from './components/Header';
 
+// Styling
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css";
+import './App.css';
 
 const App = ()=> {
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
 
       <main>
-        <SmurfList/>
-        <AddForm/>
+        <SmurfList />
+        <AddForm />
       </main>
     </div>
   );

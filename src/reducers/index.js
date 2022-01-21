@@ -2,7 +2,7 @@
 export const initialState = {
 }
 
-const reducer = ()=>{
+const reducer = () => {
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
