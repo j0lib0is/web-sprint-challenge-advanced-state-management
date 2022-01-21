@@ -124,9 +124,13 @@ Connect this component to the error state slice, setError and addSmurf actions. 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers below.
 
 1. What problem does the context API help solve?
+   Answer: It helps makes passing state to your components super easy with just a few lines of code and a trickle down effect by wrapping your top level component.
 
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+   Answer: Store is like a changelog that documents state changes. Actions simply act as a messenger between your component and your reducer that tells it something happened and passes along an object with the relevant data. The reducer is the machine that, given the same inputs, will always produce the same predictable outputs with no side effects.
 
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
+   Answer: thunk is a piece of middleware that allows you to use a function to intercept data before it heads to the reducer, delaying the syncronous event and allowing you to have control over the data being passed through.
 
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
+   Answer: Redux is obviously the most robust state management system and I can clearly see it's usefulness. However, for its sheer simplicity, I love context over connect for passing state to components.
