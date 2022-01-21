@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 // Actions
 import { setError, addSmurf } from '../actions';
 
-const AddForm = (props) => {
-    console.log(props);
+const AddForm = ({ error, dispatch }) => {
 
     const [ state, setState ] = useState({
         name: '',
@@ -24,9 +23,9 @@ const AddForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (state.name === '' || state.position === '' || state.nickname === '') {
-            props.dispatch(setError('Houston, we have a problem.'));
+            dispatch(setError('Houston, we have a problem.'));
         } else {
-            props.dispatch(addSmurf({
+            dispatch(addSmurf({
                 name: state.name,
                 position: state.position,
                 nickname: state.nickname,
@@ -55,7 +54,7 @@ const AddForm = (props) => {
                     <label htmlFor='description'>Description:</label><br/>
                     <textarea onChange={handleChange} value={state.description} name='description' id='description' />
                 </div>
-                {props.error && <div data-testid='errorAlert' className='alert alert-danger' role='alert'>Error: {props.error}</div>}
+                {error && <div data-testid='errorAlert' className='alert alert-danger' role='alert'>Error: {error}</div>}
                 <button>Submit Smurf</button>
             </form>
         </section>
